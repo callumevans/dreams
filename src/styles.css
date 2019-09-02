@@ -1,0 +1,229 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #131313;
+}
+
+#titleBar {
+    width: 100%;
+    height: 32px;
+    background: none;
+    position: relative;
+    -webkit-app-region: drag;
+}
+
+#resizeTopHandle {
+    height: 3px;
+    -webkit-app-region: no-drag;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#windowControls {
+    display: grid;
+    grid-template-columns: repeat(3, 46px);
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+    -webkit-app-region: no-drag;
+    font-family: "Segoe MDL2 Assets";
+}
+
+#windowControls #minimise {
+    grid-column: 1;
+}
+
+#windowControls #maximise {
+    grid-column: 2;
+}
+
+#windowControls #restore {
+    grid-column: 2;
+    display: none;
+}
+
+#windowControls #close {
+    grid-column: 3;
+}
+
+#windowControls .button {
+    user-select: none;
+    cursor: default;
+    color: #bbb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+#windowControls .button:hover {
+    background: rgba(255,255,255,0.2);
+    color: #FFF;
+}
+
+#windowControls #close:hover {
+    background: #E81123;
+}
+
+#editor {
+    display: flex;
+    justify-content: center;
+}
+
+#editorTextArea {
+    width: 60%;
+    max-width: 1000px;
+    min-width: 450px;
+    height: calc(100vh - 32px - 10px - 50px - 1.4vw); /* 100vh - title bar - base bottom margin - view width nudge */
+    min-height: 200px;
+    padding: 0 50px;
+    margin: calc(10px + 1.4vw) 0 0 0;
+    box-sizing: border-box;
+    background: none;
+    border: 0;
+    resize: none;
+    outline: none;
+    color: #eaeaea;
+    font-size: 1.1em;
+    font-family: monospace;
+    line-height: 1.3em;
+    overflow-x: hidden;
+}
+
+@media screen and (min-width: 900px) {
+    #editorTextArea {
+        font-size: 1.3em;
+    }
+}
+
+#editorTextArea::selection {
+    background: rgba(255, 255, 255, 0.996);
+    color: #000000;
+}
+
+#editorTextArea::-webkit-scrollbar {
+    width: 6px;
+}
+
+#editorTextArea::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 10px;
+}
+
+#editorTextArea::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 10px;
+    opacity: 0;
+    -webkit-transition: all .5s;
+}
+
+#editorTextArea::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+    opacity: 1;
+}
+
+#bookmarks {
+    min-width: 130px;
+    width: 17%;
+    position: absolute;
+    top: 15%;
+    left: 2vw;
+    padding: 0 30px;
+    font-family: monospace;
+    user-select: none;
+}
+
+@media screen and (max-width: 760px) {
+    #bookmarks {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #bookmarks {
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 900px) {
+    #bookmarks {
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    #bookmarks {
+        left: 3vw;
+        font-size: 1.3em;
+    }
+}
+
+#bookmarks h1 {
+    color: #afafaf;
+    font-size: 2em;
+    padding-left: 20px;
+    margin: 0;
+}
+
+#bookmarks h1:hover {
+    color: #e2e2e2;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#bookmarks h1.active {
+    color: #eaeaea;
+}
+
+#bookmarks h2 {
+    color: #bbbbbb;
+    font-size: 1.5em;
+    margin: 7px 0;
+    padding-left: 10px;
+}
+
+#bookmarks h2:hover {
+    color: #d8d8d8;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.titleContainer {
+    display: flex;
+}
+
+.titleContainer .closeFile {
+    color: #7a7a7a;
+    align-self: center;
+    margin-left: -20px;
+    padding-top: 2px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+    .titleContainer .closeFile {
+        padding-top: 2px;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 900px) {
+    .titleContainer .closeFile {
+        padding-top: 3px;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .titleContainer .closeFile {
+        padding-top: 5px;
+    }
+}
+
+.titleContainer .closeFile:hover {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

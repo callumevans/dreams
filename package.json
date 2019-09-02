@@ -1,0 +1,26 @@
+{
+  "name": "dreams",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "clean": " rimraf ./build",
+    "build-windows": "electron-packager . --asar=true Dreams --platform=win32 --arch=x64 --out ./build/ --overwrite"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "mousetrap": "^1.6.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "electron": "^5.0.8",
+    "electron-packager": "^14.0.4",
+    "rimraf": "^2.6.3"
+  },
+  "author": "",
+  "license": "ISC"
+}
