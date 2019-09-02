@@ -1,4 +1,4 @@
-<h1 style="text-align: center; border-bottom: 1px solid grey">Dreams</h1>
+<h1 align="center">Dreams</h1>
 
 <br />
 
@@ -6,6 +6,6 @@
 
 <img    
     src="https://raw.githubusercontent.com/callumevans/dreams/assets/dreams-1.png" 
-    style="margin: 0 auto; width: 80%; height: 80%" alt="Dreams" 
+    width="80%" height="80%" alt="Dreams" 
 />
 
