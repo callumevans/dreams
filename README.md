@@ -15,10 +15,6 @@
     />
 </p>
 
-<p align="center">
-    Dreams is a minimalistic, distraction-free text editor built on <a href="http://electron.atom.io/">Electron</a>.
-</p>
-
 <h2>How To Use</h2>
 
 <p>Dreams supports the following keyboard shortcuts:</p>
