@@ -43,16 +43,24 @@ Alternatively, you can clone the repo with:
 git clone https://github.com/callumevans/dreams
 ```
 
-Installing the dependencies:
+Install the dependencies:
 
 ```sh
 npm install
 ```
 
-And then running the `start` script:
+And then run the `start` script:
 
 ```sh
 npm start
 ```
+
+<em>Or</em> build it locally with:
+
+```sh
+npm run build-windows
+```
+
+<em>Currently only Windows is supported.</em>
 
 </p>
