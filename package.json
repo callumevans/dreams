@@ -6,7 +6,9 @@
   "scripts": {
     "start": "electron .",
     "clean": " rimraf ./build",
-    "build-windows": "electron-packager . --asar=true Dreams --platform=win32 --arch=x64 --out ./build/ --overwrite"
+    "build-windows": "electron-packager . --asar=true Dreams --platform=win32 --arch=x64 --out ./build/ --overwrite",
+    "build-darwin-x64": "electron-packager . --asar=true Dreams --platform=darwin --arch=x64 --out ./build-darwin/x64/ --overwrite",
+    "build-darwin-arm64": "electron-packager . --asar=true Dreams --platform=darwin --arch=arm64 --out ./build-darwin/arm64/ --overwrite"
   },
   "dependencies": {
     "babel-preset-env": "^1.7.0",
@@ -17,8 +19,8 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "electron": "^5.0.8",
-    "electron-packager": "^14.0.4",
+    "electron": "^11",
+    "electron-packager": "^15",
     "rimraf": "^2.6.3"
   },
   "author": "",

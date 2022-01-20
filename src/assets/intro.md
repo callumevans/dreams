@@ -6,4 +6,4 @@ Prefix a line with ' # ' to mark a chapter:
 
 > Open a file - ctrl + o 
 > Save a file - ctrl + s
-> Fullscreen - ctl + shift + enter
+> Fullscreen - ctrl + shift + enter

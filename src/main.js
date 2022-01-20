@@ -5,7 +5,7 @@ let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
         frame: false,
-        webPreferences: { zoomFactor: 1.0, nodeIntegration: true, backgroundThrottling: false },
+        webPreferences: { zoomFactor: 1.0, nodeIntegration: true, backgroundThrottling: false, enableRemoteModule: true },
         titleBarStyle: "hidden",
         minHeight: 400,
         minWidth: 500,

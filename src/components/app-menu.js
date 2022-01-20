@@ -4,23 +4,25 @@ import { remote } from "electron";
 const AppMenu = () => (
     <div id="titleBar">
         <div id="resizeTopHandle" />
-        <div id="windowControls">
-            <div id="minimise" className={"button"}>
-                <span>&#xE921;</span>
-            </div>
+        {process.platform !== "darwin" && 
+            <div id="windowControls">
+                <div id="minimise" className={"button"}>
+                    <span>&#xE921;</span>
+                </div>
 
-            <div id="maximise" className={"button"}>
-                <span>&#xE922;</span>
-            </div>
+                <div id="maximise" className={"button"}>
+                    <span>&#xE922;</span>
+                </div>
 
-            <div id="restore" className={"button"}>
-                <span>&#xE923;</span>
-            </div>
+                <div id="restore" className={"button"}>
+                    <span>&#xE923;</span>
+                </div>
 
-            <div id="close" className={"button"}>
-                <span>&#xE8BB;</span>
+                <div id="close" className={"button"}>
+                    <span>&#xE8BB;</span>
+                </div>
             </div>
-        </div>
+        }
     </div>
 );
 

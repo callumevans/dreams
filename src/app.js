@@ -17,6 +17,8 @@ class App extends React.Component {
             files: []
         };
 
+        process.env['ELECTRON_DISABLE_SECURITY_WARNINGS']=true;
+
         this.loadFile = this.loadFile.bind(this);
         this.loadFileDialog = this.loadFileDialog.bind(this);
         this.setActiveFile = this.setActiveFile.bind(this);
@@ -29,15 +31,19 @@ class App extends React.Component {
         this.persistState = this.persistState.bind(this);
         this.loadPersistentState = this.loadPersistentState.bind(this);
 
-        Mousetrap.bind(["ctrl+s"], this.saveChanges);
-        Mousetrap.bind(["ctrl+o"], this.loadFileDialog);
-        Mousetrap.bind(["ctrl+shift+enter"], this.toggleFullscreen);
+        Mousetrap.bind(["command+s", "ctrl+s"], this.saveChanges);
+        Mousetrap.bind(["command+o", "ctrl+o"], this.loadFileDialog);
+        Mousetrap.bind(["command+shift+enter", "ctrl+shift+enter"], this.toggleFullscreen);
     }
 
     componentDidMount() {
         fs.access('./state', fs.F_OK, (err) => {
             if (err) {
-                fs.copyFile(`${__dirname}/assets/intro.md`, `${__dirname}/intro.md`, (err) => {
+                
+                let introPath = `${__dirname}/assets/intro.md`;
+                if(process.platform === "darwin") introPath = `${__dirname}/assets/intro-darwin.md`;
+
+                fs.copyFile(introPath, `${__dirname}/intro.md`, (err) => {
                     this.loadFile(`${__dirname}/intro.md`);
                 });
             } else {
@@ -47,13 +53,13 @@ class App extends React.Component {
     };
 
     loadFileDialog() {
-        remote.dialog.showOpenDialog({
+        remote.dialog.showOpenDialog(remote.getCurrentWindow(), {
             filters: [{
                 name: 'Text Files', extensions: ['txt', 'md']
             }],
-        }, (file) => {
-            if (file) {
-                this.loadFile(file[0]);
+        }).then( (res) => {
+            if (res.filePaths && res.filePaths[0]) {
+                this.loadFile(res.filePaths[0]);
             }
         });
     }
@@ -102,6 +108,9 @@ class App extends React.Component {
 
     setActiveFile(filePath) {
         const state = this.state;
+
+        console.log(filePath);
+        console.dir(this.state);
 
         state.files.forEach(file => file.isActive = false);
         const targetFile = state.files.find(file => file.path === filePath);
